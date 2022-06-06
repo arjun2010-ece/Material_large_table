@@ -3,6 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/system";
+import EuroIcon from "@mui/icons-material/Euro";
 import "./App.css";
 
 
@@ -44,8 +45,9 @@ const columns = [
   },
   {
     field: "title",
-    headerName: "title",
-    // width: 130
+    headerName: "Title",
+    type: "number",
+    width: 190,
   },
   {
     field: "body",
@@ -56,9 +58,10 @@ const columns = [
 ];
 
 const StyledDataGrid = styled(DataGrid)({
-  '.css-imf0nl-MuiDataGrid-root .MuiDataGrid-iconSeparator' : {
-    color: 'white'
-  }
+  '&  .MuiDataGrid-columnSeparator': {
+    visibility: "hidden",
+    border: "14px solid black !important",
+  },
 });
 
 const App = () => {
@@ -100,6 +103,13 @@ const App = () => {
           hideFooter
           hideFooterPagination
           disableColumnMenu
+          disableExtendRowFullWidth={false}
+          // sx={{
+          //   '.MuiDataGrid-columnSeparator': {
+          //     visibility: "hidden",
+          //     border: "14px solid black !important",
+          //   },
+          // }}
         />
       )}
 
