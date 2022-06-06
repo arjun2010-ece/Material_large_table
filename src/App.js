@@ -2,6 +2,7 @@ import React, { useEffect, useReducer } from 'react';
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
 import Button from "@mui/material/Button";
+import { styled } from "@mui/system";
 import "./App.css";
 
 
@@ -50,9 +51,15 @@ const columns = [
     field: "body",
     headerName: "Body",
     type: "number",
-    // width: 90,
+    width: 390,
   },
 ];
+
+const StyledDataGrid = styled(DataGrid)({
+  '.css-imf0nl-MuiDataGrid-root .MuiDataGrid-iconSeparator' : {
+    color: 'white'
+  }
+});
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -81,9 +88,9 @@ const App = () => {
   }
   
   return (
-    <div style={{ height: "500px", width: "100%" }}>
+    <div className="container">
       {displayedData.length > 0 && (
-        <DataGrid
+        <StyledDataGrid
           rows={displayedData}
           columns={columns}
           autoHeight
