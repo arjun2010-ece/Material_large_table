@@ -8,4 +8,8 @@ The project uses useReducers to handle different states.
 And load more button is present tilll we have data.
 
 
+NOTE::
+
+This project uses latest react 18 and useEffect runs twice even if dependency array is empty so the solution is to remove strict mode in index.js file.
+
 
